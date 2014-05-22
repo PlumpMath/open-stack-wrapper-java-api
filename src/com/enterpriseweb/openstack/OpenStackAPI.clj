@@ -1,15 +1,14 @@
 (ns com.enterpriseweb.openstack.OpenStackAPI
-  (:require [com.enterpriseweb.json.protocol :refer :all]
-            [com.enterpriseweb.json.util :refer :all]
-            [com.enterpriseweb.json.tools :refer :all])
-  (:use
-        [open-stack-wrapper.core :as os-core]
-        [open-stack-wrapper.util :as util])
+  (:require [com.enterpriseweb.java-json.protocol :refer :all]
+            [com.enterpriseweb.java-json.util :refer :all]
+            [com.enterpriseweb.java-json.tools :refer :all]
+            [com.enterpriseweb.openstack.wrapper.core :as os-core]
+            [com.enterpriseweb.openstack.wrapper.util :as util])
   (:gen-class :methods
               [#^{:static true} [makeCall [org.json.JSONObject] org.json.JSONObject]]))
 
 
-;TODO throw exception if function is not evaluated!!
+                                        ;TODO throw exception if function is not evaluated!!
 (defn mapping [option]
   (letfn  []
 
