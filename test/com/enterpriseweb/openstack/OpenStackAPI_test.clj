@@ -1,12 +1,17 @@
 (ns com.enterpriseweb.openstack.OpenStackAPI-test
-  (:use [com.enterpriseweb.openstack.OpenStackAPI])
-  (:require [com.enterpriseweb.java-json.util :refer :all]
-            [com.enterpriseweb.java-json.protocol :refer :all]
-            [com.enterpriseweb.java-json.tools :refer :all]
-            [com.enterpriseweb.openstack.wrapper.util :as util]
-            [com.enterpriseweb.openstack.wrapper.core :as os-core]
-            [clojure.test :refer :all])
+  (:require
+   [com.enterpriseweb.openstack.OpenStackAPI :refer :all]
+   [com.enterpriseweb.openstack.wrapper.util :as util]
+   [clojure.test :refer :all])
   (:import [org.json JSONObject]))
+
+
+
+(deftest mapping-test
+    (testing "exception mapping"
+      (is (thrown? IllegalArgumentException (mapping :no-mapping)))
+      (is  (= (vector? (mapping :tokens)) ))
+    ))
 
 
 (comment "so far this is an integration/interactive test"
