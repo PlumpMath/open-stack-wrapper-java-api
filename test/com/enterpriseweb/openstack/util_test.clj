@@ -5,13 +5,15 @@
   (:import [org.json JSONObject]))
 
 
-(is (let [b-url "http://my-url/"
-          id "my-id"
-          path "my-path/"
-          base {:eps-url b-url :id id}
-          result (assoc base :url (str b-url path id))]
-      (=
-       (->(json-url-delete-adapter-add-id (tools/clojure-json->java-json base) path)
-          tools/java-json->clojure-json)
-       (-> (tools/clojure-json->java-json result)
-           tools/java-json->clojure-json))))
+(deftest simple-test
+  (testing json-with-url-to-delete-entity
+    (is (let [b-url "http://my-url/"
+              id "my-id"
+              path "my-path/"
+              base {:eps-url b-url :id id}
+              result (assoc base :url (str b-url path id))]
+          (=
+           (->(json-with-url-to-delete-entity (tools/clojure-json->java-json base) path)
+              tools/java-json->clojure-json)
+           (-> (tools/clojure-json->java-json result)
+               tools/java-json->clojure-json))))))
