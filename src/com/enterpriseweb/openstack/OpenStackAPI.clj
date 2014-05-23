@@ -1,6 +1,7 @@
 (ns com.enterpriseweb.openstack.OpenStackAPI
   (:require [com.enterpriseweb.java-json.protocol :refer :all]
             [com.enterpriseweb.java-json.util :refer :all]
+            [com.enterpriseweb.openstack.util :refer :all]
             [com.enterpriseweb.java-json.tools :refer :all]
             [com.enterpriseweb.openstack.wrapper.core :as os-core]
             [com.enterpriseweb.openstack.wrapper.util :as util])
